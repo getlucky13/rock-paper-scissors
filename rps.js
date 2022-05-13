@@ -79,6 +79,6 @@ function game(){
     } else if (playerWins > computerWins) {
             console.log('You won! Congrats!');
     } else {
-            consoel.log('You lose! Better luck next time!'(;
+            consoel.log('You lose! Better luck next time!');
     }
 }
