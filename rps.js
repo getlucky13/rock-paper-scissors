@@ -11,9 +11,9 @@ function computerPlay() {
 }
 
 function capitalizeFirstLetter(str) {
-    str.trim();
-    let newStr = str[0].toUpperCase() + str.slice(1).toLowerCase();
-    return newStr;
+    let newStr = str.trim();
+    let newStr1 = newStr[0].toUpperCase() + newStr.slice(1).toLowerCase();
+    return newStr1;
 }
 
 function playRound(playerSelection, computerSelection) {
