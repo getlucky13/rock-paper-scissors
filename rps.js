@@ -71,10 +71,16 @@ function game(){
     }
 
     //after 5 rounds have been played, store a string in finalScore that states 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
+    finalScore = 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
+    console.log(finalScore);
     //if playerWins = computerWins, log a message to the console stating 'Draw!'
     //if playerWins > computerWins, log a message to the console stating 'You won! Congrats!'
     //if playerWins < computerWins, log a message to the console stating 'You lose! Better luck next time!'
+    if (playerWins === computerWins) {
+        console.log('Draw!');
+    } else if (playerWins > computerWins) {
+            console.log('You won! Congrats!');
+    } else {
+            consoel.log('You lose! Better luck next time!'(;
+    }
 }
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
