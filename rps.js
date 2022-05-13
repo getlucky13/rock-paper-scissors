@@ -47,7 +47,7 @@ function game(){
     //create a for loop that plays 5 rounds
     for (let i = 0; i<5; i++) {
         //creat a var for playerSelection and take players input with a prompt
-        let playerSelection = prmopt("Please type Rock, Paper, or Scissors", ' ');
+        let playerSelection = prompt("Please type Rock, Paper, or Scissors", ' ');
         const computerSelection = computerPlay();
         //run playRound using playerSelection computerPlay for computerSelection
         let won = playRound(playerSelection, computerSelection);
@@ -57,21 +57,21 @@ function game(){
         if (won === 'Draw!') {
             console.log('Draw!');
         }   else if (won) {
-                console.log('You win! ${playerSelection} beats ${computerSelection}.');
+                console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
                 playerWins++;
         }   else {
-                console.log('You lose! ${computerSelection} beats ${playerSelection}.');
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
                 computerWins++;
         }
         //store a string in score that says 'SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
-        score = 'SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}';
+        score = `SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}`;
         //log score to the console
         console.log(score);
         //restart loop
     }
 
     //after 5 rounds have been played, store a string in finalScore that states 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
-    finalScore = 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
+    finalScore = `FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}`
     console.log(finalScore);
     //if playerWins = computerWins, log a message to the console stating 'Draw!'
     //if playerWins > computerWins, log a message to the console stating 'You won! Congrats!'
