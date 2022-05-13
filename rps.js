@@ -27,23 +27,33 @@ function playRound(playerSelection, computerSelection) {
         case playerSelectionFix === 'Paper' && computerSelection === 'Rock':
         case playerSelectionFix === 'Scissors' && computerSelection === 'Paper':
             victory = true;
-            break;
+            return victory;
         case playerSelectionFix === 'Rock' && computerSelection === 'Paper':
         case playerSelectionFix === 'Paper' && computerSelection === 'Scissors':
         case playerSelectionFix === 'Scissors' && computerSelection === 'Rock':
             victory = false;
-            break;
-    }
-    if (playerSelectionFix === computerSelection){
-        return 'Draw!'
-    } else if (victory) {
-        return `You won! ${playerSelectionFix} beats ${computerSelection}`;
-    }
-    else {
-        return `You lost! ${computerSelection} beats ${playerSelectionFix}`;
+            return victory;
+        case playerSelectionFix === computerSelection:
+            return 'Draw!'
     }
 }
 
+function game(){
+    //create vars for playerWins = 0, computerWins = 0, score, finalScore,
+    //create a for loop that plays 5 rounds
+        //creat a var for playerSelection and take players input with a prompt
+        //run playRound using playerSelection computerPlay for computerSelection
+        //if victory is true, log a message to the console and increment playerWins by 1
+        //if victory is fals, log a message to the console and increment computerWins by 1
+        //if playRound returns 'Draw', log a message and do nothing else
+        //store a string in score that says 'SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
+        //log score to the console
+        //restart loop
+    //after 5 rounds have been played, store a string in finalScore that states 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
+    //if playerWins = computerWins, log a message to the console stating 'Draw!'
+    //if playerWins > computerWins, log a message to the console stating 'You won! Congrats!'
+    //if playerWins < computerWins, log a message to the console stating 'You lose! Better luck next time!'
+}
 const playerSelection = "rock";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
