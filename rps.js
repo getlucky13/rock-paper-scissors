@@ -3,13 +3,10 @@ function computerPlay() {
     switch (randomNumber) {
         case 0: 
             return 'Rock';
-            break;
         case 1:
             return 'Paper';
-            break;
         case 2:
             return 'Scissors';
-            break;
     }
 }
 
@@ -48,19 +45,20 @@ function game(){
     for (let i = 0; i<5; i++) {
         //creat a var for playerSelection and take players input with a prompt
         let playerSelection = prompt("Please type Rock, Paper, or Scissors", ' ');
-        const computerSelection = computerPlay();
+        let computerSelection = computerPlay();
+        let pSelFix = capitalizeFirstLetter(playerSelection);
         //run playRound using playerSelection computerPlay for computerSelection
-        let won = playRound(playerSelection, computerSelection);
+        let won = playRound(pSelFix, computerSelection);
         //if victory is true, log a message to the console and increment playerWins by 1
         //if victory is fails, log a message to the console and increment computerWins by 1
         //if playRound returns 'Draw', log a message and do nothing else
         if (won === 'Draw!') {
             console.log('Draw!');
         }   else if (won) {
-                console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+                console.log(`You win! ${pSelFix} beats ${computerSelection}.`);
                 playerWins++;
         }   else {
-                console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+                console.log(`You lose! ${computerSelection} beats ${pSelFix}.`);
                 computerWins++;
         }
         //store a string in score that says 'SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
