@@ -11,6 +11,9 @@ function computerPlay() {
 }
 
 function capitalizeFirstLetter(str) {
+    if (!!str) {
+      return null;
+    }
     let newStr = str.trim();
     let newStr1 = newStr[0].toUpperCase() + newStr.slice(1).toLowerCase();
     return newStr1;
@@ -50,18 +53,14 @@ function game(){
             alert('Goodbye');
             return;
         }
-        if (playerSelection === undefined) {
-            alert('Goodbye');
-            return;
-        }
         let pSelFix = capitalizeFirstLetter(playerSelection);
         //create a condition for handling incorrect inputs
-        if (pSelFix != 'Rock' || 'Scissors' || 'Paper') {
+        if (pSelFix != 'Rock' || pSelFix != 'Scissors' || pSelFix != 'Paper'|| !!pSelFix) {
             alert('Incorrect input.');
             playerSelection = prompt("Please type Rock, Paper, or Scissors. Enter nothing to quit.", ' ');
             pSelFix = capitalizeFirstLetter(playerSelection);
         }
-        if (pSelFix != 'Rock' || 'Scissors' || 'Paper') {
+        if (pSelFix != 'Rock' || pSelFix != 'Scissors' || pSelFix != 'Paper'|| !!pSelFix) {
             alert('You entered another incorrect input. Ending game. Get your shit together.')
             return;
         }
@@ -102,4 +101,4 @@ function game(){
     }
 }
 
-game();
+//game();
