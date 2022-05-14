@@ -18,7 +18,6 @@ function capitalizeFirstLetter(str) {
 
 function playRound(playerSelection, computerSelection) {
     let victory;
-    playerSelectionFix = capitalizeFirstLetter(playerSelection);
     switch (true) {
         case playerSelectionFix === 'Rock' && computerSelection === 'Scissors':
         case playerSelectionFix === 'Paper' && computerSelection === 'Rock':
@@ -42,7 +41,6 @@ function game(){
     let score;
     let finalScore;
     //create a for game that plays 5 rounds
-    game:
     for (let i = 0; i<5; i++) {
         //create a var for playerSelection and take players input with a prompt
         let playerSelection = prompt("Please type Rock, Paper, or Scissors. Enter nothing to quit.", ' ');
@@ -50,11 +48,11 @@ function game(){
         console.log(playerSelection)
         if (playerSelection === null) {
             alert('Goodbye');
-            break game;
+            return;
         }
         if (playerSelection === undefined) {
             alert('Goodbye');
-            break game;
+            return;
         }
         let pSelFix = capitalizeFirstLetter(playerSelection);
         //create a condition for handling incorrect inputs
@@ -65,7 +63,7 @@ function game(){
         }
         if (pSelFix != 'Rock' || 'Scissors' || 'Paper') {
             alert('You entered another incorrect input. Ending game. Get your shit together.')
-            break game;
+            return;
         }
         let computerSelection = computerPlay();
         //run playRound using playerSelection computerPlay for computerSelection
