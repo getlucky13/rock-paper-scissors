@@ -101,4 +101,14 @@ function game(){
     }
 }
 
-//game();
+/* game() will start a new game when new game button is pressed
+Global vars:
+winner - string that updates stating the winner of each round, to be used to display results
+pWins - tracks player wins
+cWins - tracks computer wins
+score - string that displays overall score. updates after each round. is reset when game() is ran.
+results - string that displays winner of each round. updates after each round. displays 'CHOOSE' before first selection
+gameOver - a boolean that is true if either player or comp wins = 5.
+
+could use a while loop to run playRound until gameOver is true
+*/
