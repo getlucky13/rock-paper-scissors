@@ -18,16 +18,36 @@ body{
   font-size: 64px;
 }
 
-.results {
+.results,
+.score {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
-  border: 5px solid white;
-  border-radius: 2px;
+  height: 20vh;
 }
 
 .buttons {
   display:flex;
   justify-content: space-around;
+  align-items: center;
+  height: 25%;
+}
+
+#rock,
+#paper,
+#scissors {
+  font-size: 48px;
+  border-radius: 6px;
+  width: 300px;
+}
+
+.new-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*margin-top: auto;*/
+}
+
+#newgame{
+  font-size: 32px;
 }
