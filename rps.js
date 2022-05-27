@@ -57,8 +57,11 @@ let score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
 let gameOver = false;
 let finalWinner;
 
-const scoreCard = element.querySelector(.score);
+const scoreCard = document.querySelector('.score');
 scoreCard.textContent = score;
+
+const resultsCard = document.querySelector('.results');
+resultsCard.textContent = winner;
 
 function game(){
 
