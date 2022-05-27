@@ -28,69 +28,41 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(){
-    //create vars for playerWins = 0, computerWins = 0, score, finalScore
-    let playerWins = 0;
-    let computerWins = 0;
-    let score;
-    let finalScore;
-    //create a for game that plays 5 rounds
-    for (let i = 0; i<5; i++) {
-        //create a var for playerSelection and take players input with a prompt
-        let playerSelection = prompt("Please type Rock, Paper, or Scissors. Enter nothing to quit.", ' ');
-        //create a condition for handling null inputs
-        console.log(playerSelection)
-        if (playerSelection === null) {
-            alert('Goodbye');
-            return;
-        }
-        let pSelFix = capitalizeFirstLetter(playerSelection);
-        //create a condition for handling incorrect inputs
-        if (pSelFix != 'Rock' || pSelFix != 'Scissors' || pSelFix != 'Paper'|| !!pSelFix) {
-            alert('Incorrect input.');
-            playerSelection = prompt("Please type Rock, Paper, or Scissors. Enter nothing to quit.", ' ');
-            pSelFix = capitalizeFirstLetter(playerSelection);
-        }
-        if (pSelFix != 'Rock' || pSelFix != 'Scissors' || pSelFix != 'Paper'|| !!pSelFix) {
-            alert('You entered another incorrect input. Ending game. Get your shit together.')
-            return;
-        }
-        let computerSelection = computerPlay();
-        //run playRound using playerSelection computerPlay for computerSelection
-        let won = playRound(pSelFix, computerSelection);
-        //if victory is true, log a message to the console and increment playerWins by 1
-        //if victory is fails, log a message to the console and increment computerWins by 1
-        //if playRound returns 'Draw', log a message and do nothing else
-        if (won === 'Draw!') {
-            alert('Draw!');
-        }   else if (won) {
-                alert(`You win! ${pSelFix} beats ${computerSelection}.`);
-                playerWins++;
-        }   else {
-                alert(`You lose! ${computerSelection} beats ${pSelFix}.`);
-                computerWins++;
-        }
-        //store a string in score that says 'SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
-        score = `SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}`;
-        //log score to the console
-        alert(score);
-        //restart game
-    }
-
-    //after 5 rounds have been played, store a string in finalScore that states 'FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}'
-    finalScore = `FINAL SCORE: Player wins: ${playerWins} Computer wins: ${computerWins}`
-    alert(finalScore);
-    //if playerWins = computerWins, log a message to the console stating 'Draw!'
-    //if playerWins > computerWins, log a message to the console stating 'You won! Congrats!'
-    //if playerWins < computerWins, log a message to the console stating 'You lose! Better luck next time!'
-    if (playerWins === computerWins) {
-        alert('Draw!');
-    } else if (playerWins > computerWins) {
-            alert('You won! Congrats!');
-    } else {
-            alert('You lose! Better luck next time!');
+function updateGameOver(pWins, cWins) {
+    if (pWins = 5 || cWins = 5) {
+        gameOver = true
+        return;
     }
 }
+
+function updateWinner() {
+    if (victory) {
+        winner = 'PLAYER';
+        return pWins++;
+    } else if (!victory) {
+        winner = 'COMPUTER';
+        return cWins++;
+    } else if (victory = 'Draw') {
+        winner = 'Draw'
+        return;
+    }
+}
+
+
+
+let winner = 'CHOOSE'
+let pWins = 0;
+let cWins = 0;
+let score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
+let gameOver = false;
+let finalWinner;
+
+const scoreCard = element.querySelector(.score);
+scoreCard.textContent = score;
+
+function game(){
+
+
 
 /* game() will start a new game when new game button is pressed
 Global vars:
