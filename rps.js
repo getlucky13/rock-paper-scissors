@@ -10,15 +10,6 @@ function computerPlay() {
     }
 }
 
-function capitalizeFirstLetter(str) {
-    if (!!str) {
-      return null;
-    }
-    let newStr = str.trim();
-    let newStr1 = newStr[0].toUpperCase() + newStr.slice(1).toLowerCase();
-    return newStr1;
-}
-
 function playRound(playerSelection, computerSelection) {
     let victory;
     switch (true) {
