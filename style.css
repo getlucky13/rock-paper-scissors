@@ -1,0 +1,33 @@
+* {
+  border: 1px solid white;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  height: 100vh;
+  widgth: 100vw;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  border: 5px solid white;
+  border-radius: 2px;
+}
+
+.buttons {
+  display:flex;
+  justify-content: space-around;
+}
