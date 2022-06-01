@@ -49,15 +49,15 @@ function updateWinner() {
 }
 
 function chooseRock() {
-    return 'ROCK';   
+    return 'Rock';   
 }
 
 function choosePaper() {
-    return 'PAPER';
+    return 'Paper';
 }
 
 function chooseScissors() {
-    return 'SCISSORS';   
+    return 'Scissors';   
 }
 
 let winner = 'CHOOSE'
