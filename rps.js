@@ -29,7 +29,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateGameOver(pWins, cWins) {
-    if (pWins = 5 || cWins = 5) {
+    if (pWins == 5 || cWins == 5) {
         gameOver = true
         return;
     }
@@ -63,7 +63,7 @@ scoreCard.textContent = score;
 const resultsCard = document.querySelector('.results');
 resultsCard.textContent = winner;
 
-function game(){
+//function game(){
 
 
 
