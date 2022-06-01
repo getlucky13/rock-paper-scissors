@@ -48,7 +48,17 @@ function updateWinner() {
     }
 }
 
+function chooseRock() {
+    return 'ROCK';   
+}
 
+function choosePaper() {
+    return 'PAPER';
+}
+
+function chooseScissors() {
+    return 'SCISSORS';   
+}
 
 let winner = 'CHOOSE'
 let pWins = 0;
@@ -69,6 +79,11 @@ newBameBtn.addEventListener('click', game());
 /*function game(){
     pWins = 0;
     cWins = 0; 
+    winner = 'CHOOSE';
+    gameOver = false;
+    while(!gameOver) {
+    
+    }
 
 
 
