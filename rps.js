@@ -94,6 +94,7 @@ const scissorsBtn = document.querySelector('#b3');
     cWins = 0; 
     winner = 'CHOOSE';
     gameOver = false;
+    resultsCard.textContent = winner;
     
     while(!gameOver) {
     rockBtn.addEventListener('click', playRoundRock()); 
@@ -101,7 +102,8 @@ const scissorsBtn = document.querySelector('#b3');
     scissorBtn.addEventListener('click', playRoundScissors());
     }
 
-
+    finalWinner = `GAME OVER. ${winnner} WINS`;
+    resultsCard.textContent = finalWinner;
 
 /* game() will start a new game when new game button is pressed
 Global vars:
