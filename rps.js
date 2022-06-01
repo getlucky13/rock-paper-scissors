@@ -63,7 +63,12 @@ scoreCard.textContent = score;
 const resultsCard = document.querySelector('.results');
 resultsCard.textContent = winner;
 
-//function game(){
+const newGameBtn = document.querySelector('#newgame');
+newBameBtn.addEventListener('click', game());
+
+/*function game(){
+    pWins = 0;
+    cWins = 0; 
 
 
 
