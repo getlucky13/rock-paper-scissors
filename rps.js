@@ -1,3 +1,10 @@
+let winner = 'CHOOSE'
+let pWins = 0;
+let cWins = 0;
+let score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
+let gameOver = false;
+let finalWinner;
+
 function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3);
     switch (randomNumber) {
@@ -41,10 +48,10 @@ function updateGameOver(pWins, cWins) {
 
 function updateWinner(victory) {
     if (victory) {
-        winner = 'PLAYER';
+        winner = 'PLAYER WINS';
         return pWins++;
     } else if (!victory) {
-        winner = 'COMPUTER';
+        winner = 'COMPUTER WINS';
         return cWins++;
     } else if (victory === 'Draw') {
         winner = 'Draw'
@@ -52,24 +59,21 @@ function updateWinner(victory) {
     }
 }
 
-function chooseRock() {
-    return 'Rock';   
+function playRoundRock() {
+    updateWinner(playRound('Rock', computerPlay()));
+    updateGameOver(pWins, cWins);
 }
 
-function choosePaper() {
-    return 'Paper';
+function playRoundPaper() {
+    updateWinner(playRound('Paper', computerPlay()));
+    updateGameOver(pWins, cWins);
 }
 
-function chooseScissors() {
-    return 'Scissors';   
+function playRoundScissors() {
+    updateWinner(playRound('Scissors', computerPlay()));
+    updateGameOver(pWins, cWins); 
 }
 
-let winner = 'CHOOSE'
-let pWins = 0;
-let cWins = 0;
-let score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
-let gameOver = false;
-let finalWinner;
 
 const scoreCard = document.querySelector('.score');
 scoreCard.textContent = score;
@@ -90,11 +94,11 @@ const scissorsBtn = document.querySelector('#b3');
     cWins = 0; 
     winner = 'CHOOSE';
     gameOver = false;
+    
     while(!gameOver) {
-    rockBtn.addEventListener('click', updateWinner(playRound(chooseRock(), computerPlay())); 
-    paperBtn.addEventListener('click', updateWinner(playRound(choosePaper(), computerPlay()));
-    scissorBtn.addEventListener('click', updateWinner(playRound(chooseScissors(), computerPlay()));
-    updateGameOver(pWins, cWins);
+    rockBtn.addEventListener('click', playRoundRock()); 
+    paperBtn.addEventListener('click', playRoundPaper());
+    scissorBtn.addEventListener('click', playRoundScissors());
     }
 
 
@@ -118,8 +122,4 @@ While gameOver is false:
     Finally, playRound() will call updateGameOver()
 When gameOver is true, the while loop will finish, and updateFinalWinner() will set winner to a final victory message.
 displayFinalWinnner() will display final victory message in results element
-
-Notes:
-Concern that while loop wont execute properly with updateGameOver not contained in one of the functions run on button press.
-It may be worthwhile to create three seperate playRound functions for each player choice, that runs updateWinner and updateGameOver in the function execution.
 */
