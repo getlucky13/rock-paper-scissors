@@ -39,14 +39,14 @@ function updateGameOver(pWins, cWins) {
     }
 }
 
-function updateWinner() {
+function updateWinner(victory) {
     if (victory) {
         winner = 'PLAYER';
         return pWins++;
     } else if (!victory) {
         winner = 'COMPUTER';
         return cWins++;
-    } else if (victory = 'Draw') {
+    } else if (victory === 'Draw') {
         winner = 'Draw'
         return;
     }
@@ -118,4 +118,8 @@ While gameOver is false:
     Finally, playRound() will call updateGameOver()
 When gameOver is true, the while loop will finish, and updateFinalWinner() will set winner to a final victory message.
 displayFinalWinnner() will display final victory message in results element
+
+Notes:
+Concern that while loop wont execute properly with updateGameOver not contained in one of the functions run on button press.
+It may be worthwhile to create three seperate playRound functions for each player choice, that runs updateWinner and updateGameOver in the function execution.
 */
