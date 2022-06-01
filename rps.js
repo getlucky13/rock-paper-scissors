@@ -24,13 +24,17 @@ function playRound(playerSelection, computerSelection) {
             victory = false;
             return victory;
         case playerSelectionFix === computerSelection:
-            return 'Draw!'
+            return 'Draw!';
     }
+    
 }
 
 function updateGameOver(pWins, cWins) {
     if (pWins == 5 || cWins == 5) {
-        gameOver = true
+        gameOver = true;
+        return;
+    } else {
+        gameOver = false;
         return;
     }
 }
@@ -76,13 +80,21 @@ resultsCard.textContent = winner;
 const newGameBtn = document.querySelector('#newgame');
 newBameBtn.addEventListener('click', game());
 
+const rockBtn = document.querySelector('#b1');
+const paperBtn = document.querySelector('#b2');
+const scissorsBtn = document.querySelector('#b3');
+
+
 /*function game(){
     pWins = 0;
     cWins = 0; 
     winner = 'CHOOSE';
     gameOver = false;
     while(!gameOver) {
-    
+    rockBtn.addEventListener('click', updateWinner(playRound(chooseRock(), computerPlay())); 
+    paperBtn.addEventListener('click', updateWinner(playRound(choosePaper(), computerPlay()));
+    scissorBtn.addEventListener('click', updateWinner(playRound(chooseScissors(), computerPlay()));
+    updateGameOver(pWins, cWins);
     }
 
 
@@ -101,8 +113,7 @@ On click of newgame button, run game().
 game() sets pWins and cWins to 0, set winner to 'CHOOSE' and score to a defualt value, and gameOver to false
 While gameOver is false:
     displayWinner() displays the 'CHOOSE' message in results div.
-    When the player clicks a button, run playRound() using the button choice as the player selection
-    playRound() will run updateWinner(), updateScore(), displayWinner(), and displayScore() during its execution
+    When the player clicks a button, run updateWinner with playRound as the arg, and the button chosen as playerSelection, and computerPlay as computerSelection.
     to update the global vars and then display them in their corresponding elements
     Finally, playRound() will call updateGameOver()
 When gameOver is true, the while loop will finish, and updateFinalWinner() will set winner to a final victory message.
