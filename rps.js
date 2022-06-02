@@ -114,14 +114,19 @@ score - string that displays overall score. updates after each round. is reset w
 gameOver - a boolean that is true if either player or comp wins = 5.
 finalWinner - string that displays overall winner, used to display final victory message.
 
-Basic flow:
-On click of newgame button, run game().
-game() sets pWins and cWins to 0, set winner to 'CHOOSE' and score to a defualt value, and gameOver to false
-While gameOver is false:
-    displayWinner() displays the 'CHOOSE' message in results div.
-    When the player clicks a button, run updateWinner with playRound as the arg, and the button chosen as playerSelection, and computerPlay as computerSelection.
-    to update the global vars and then display them in their corresponding elements
-    Finally, playRound() will call updateGameOver()
-When gameOver is true, the while loop will finish, and updateFinalWinner() will set winner to a final victory message.
-displayFinalWinnner() will display final victory message in results element
+Originally intended to contain the entire gameplay in a game() function. No longer think that is best. 
+After reviewing some projects, simplest way to fix what I have would be to set an event listener on each button that runs getPlayerChoice.
+At the end of play round, use a function to check if the game is over and a winner has been determined. 
+Use a final function to display final results.
+Can have new game either use location.reload to reload the page, or could make a function to reset all values to default. 
+
+function getPlayerChoice(e) {
+  let playerSelection= (e.target.id);
+  playerChoice = e.target.textContent;
+  playRound(playerSelection, computerPlay());
+}
+
+Borrow from another project. May be useful for taking button clicking input. 
+
 */
+
