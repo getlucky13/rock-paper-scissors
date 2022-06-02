@@ -1,9 +1,19 @@
-let winner = 'CHOOSE'
+let winner;
 let pWins = 0;
 let cWins = 0;
 let score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
-let gameOver = false;
+let gameOver;
 let finalWinner;
+
+const scoreCard = document.querySelector('.score');
+scoreCard.textContent = score;
+
+const resultsCard = document.querySelector('.results');
+resultsCard.textContent = winner;
+
+const rockBtn = document.querySelector('#b1');
+const paperBtn = document.querySelector('#b2');
+const scissorsBtn = document.querySelector('#b3');
 
 function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3);
@@ -20,17 +30,17 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     let victory;
     switch (true) {
-        case playerSelectionFix === 'Rock' && computerSelection === 'Scissors':
-        case playerSelectionFix === 'Paper' && computerSelection === 'Rock':
-        case playerSelectionFix === 'Scissors' && computerSelection === 'Paper':
+        case playerSelection === 'Rock' && computerSelection === 'Scissors':
+        case playerSelection === 'Paper' && computerSelection === 'Rock':
+        case playerSelection === 'Scissors' && computerSelection === 'Paper':
             victory = true;
             return victory;
-        case playerSelectionFix === 'Rock' && computerSelection === 'Paper':
-        case playerSelectionFix === 'Paper' && computerSelection === 'Scissors':
-        case playerSelectionFix === 'Scissors' && computerSelection === 'Rock':
+        case playerSelection === 'Rock' && computerSelection === 'Paper':
+        case playerSelection === 'Paper' && computerSelection === 'Scissors':
+        case playerSelection === 'Scissors' && computerSelection === 'Rock':
             victory = false;
             return victory;
-        case playerSelectionFix === computerSelection:
+        case playerSelection === computerSelection:
             return 'Draw!';
     }
     
@@ -74,22 +84,7 @@ function playRoundScissors() {
     updateGameOver(pWins, cWins); 
 }
 
-
-const scoreCard = document.querySelector('.score');
-scoreCard.textContent = score;
-
-const resultsCard = document.querySelector('.results');
-resultsCard.textContent = winner;
-
-const newGameBtn = document.querySelector('#newgame');
-newBameBtn.addEventListener('click', game());
-
-const rockBtn = document.querySelector('#b1');
-const paperBtn = document.querySelector('#b2');
-const scissorsBtn = document.querySelector('#b3');
-
-
-/*function game(){
+function game(){
     pWins = 0;
     cWins = 0; 
     winner = 'CHOOSE';
@@ -97,13 +92,18 @@ const scissorsBtn = document.querySelector('#b3');
     resultsCard.textContent = winner;
     
     while(!gameOver) {
-    rockBtn.addEventListener('click', playRoundRock()); 
-    paperBtn.addEventListener('click', playRoundPaper());
-    scissorBtn.addEventListener('click', playRoundScissors());
+    rockBtn.addEventListener('click', playRoundRock); 
+    paperBtn.addEventListener('click', playRoundPaper);
+    scissorsBtn.addEventListener('click', playRoundScissors);
     }
 
-    finalWinner = `GAME OVER. ${winnner} WINS`;
+    finalWinner = `GAME OVER. ${winner}`;
     resultsCard.textContent = finalWinner;
+}
+
+const newGameBtn = document.querySelector('#newGame');
+newGameBtn.addEventListener('click', game);
+
 
 /* game() will start a new game when new game button is pressed
 Global vars:
