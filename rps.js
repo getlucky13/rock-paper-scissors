@@ -84,25 +84,16 @@ function playRoundScissors() {
     updateGameOver(pWins, cWins); 
 }
 
-function game(){
+function newGame(){
     pWins = 0;
     cWins = 0; 
     winner = 'CHOOSE';
     gameOver = false;
     resultsCard.textContent = winner;
-    
-    while(!gameOver) {
-    rockBtn.addEventListener('click', playRoundRock); 
-    paperBtn.addEventListener('click', playRoundPaper);
-    scissorsBtn.addEventListener('click', playRoundScissors);
-    }
-
-    finalWinner = `GAME OVER. ${winner}`;
-    resultsCard.textContent = finalWinner;
 }
 
 const newGameBtn = document.querySelector('#newGame');
-newGameBtn.addEventListener('click', game);
+newGameBtn.addEventListener('click', newGame);
 
 
 /* game() will start a new game when new game button is pressed
