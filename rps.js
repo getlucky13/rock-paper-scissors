@@ -69,21 +69,6 @@ function updateWinner(victory) {
     }
 }
 
-function playRoundRock() {
-    updateWinner(playRound('Rock', computerPlay()));
-    updateGameOver(pWins, cWins);
-}
-
-function playRoundPaper() {
-    updateWinner(playRound('Paper', computerPlay()));
-    updateGameOver(pWins, cWins);
-}
-
-function playRoundScissors() {
-    updateWinner(playRound('Scissors', computerPlay()));
-    updateGameOver(pWins, cWins); 
-}
-
 function newGame(){
     pWins = 0;
     cWins = 0; 
