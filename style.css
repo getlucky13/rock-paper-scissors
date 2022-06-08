@@ -26,7 +26,7 @@ body{
   height: 20vh;
 }
 
-.buttons {
+.choiceBtns {
   display:flex;
   justify-content: space-around;
   align-items: center;

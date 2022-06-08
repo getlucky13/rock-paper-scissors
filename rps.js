@@ -11,9 +11,8 @@ scoreCard.textContent = score;
 const resultsCard = document.querySelector('.results');
 resultsCard.textContent = winner;
 
-const rockBtn = document.querySelector('#b1');
-const paperBtn = document.querySelector('#b2');
-const scissorsBtn = document.querySelector('#b3');
+const choiceBtns = document.querySelectorAll('div.choiceBtns button');
+choiceBtns.forEach(button => { button.addEventListener('click', getPlayerChoice) });
 
 function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3);
@@ -76,12 +75,14 @@ function newGame(){
     winner = 'CHOOSE';
     gameOver = false;
     resultsCard.textContent = winner;
+    console.log(' newGame worked');
 }
 
 const newGameBtn = document.querySelector('#newGame');
 newGameBtn.addEventListener('click', newGame);
 
 function getPlayerChoice(e) {
+    console.log(e);
     let playerSelection = (e.target.textContent);
     playRound(playerSelection, computerPlay());
   }
