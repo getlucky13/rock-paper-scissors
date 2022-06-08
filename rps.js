@@ -33,14 +33,12 @@ function playRound(playerSelection, computerSelection) {
         case playerSelection === 'Paper' && computerSelection === 'Rock':
         case playerSelection === 'Scissors' && computerSelection === 'Paper':
             victory = true;
-            return victory;
         case playerSelection === 'Rock' && computerSelection === 'Paper':
         case playerSelection === 'Paper' && computerSelection === 'Scissors':
         case playerSelection === 'Scissors' && computerSelection === 'Rock':
             victory = false;
-            return victory;
         case playerSelection === computerSelection:
-            return 'Draw!';
+            victory = 'Draw!';
     }
     updateWinner(victory);
     updateGameOver(pWins, cWins);
@@ -82,14 +80,12 @@ const newGameBtn = document.querySelector('#newGame');
 newGameBtn.addEventListener('click', newGame);
 
 function getPlayerChoice(e) {
-    console.log(e);
     let playerSelection = (e.target.textContent);
     playRound(playerSelection, computerPlay());
   }
 
 
 /* 
-getPlayerChoice isnt properly executing, I think because the textContent it's pulling isn't working as an arg for playRound. 
-Could maybe change playRound to work with the lower case button ids and use those as playerSelection. Testing still required.
+playRound is only returning draw. Inputs are being registered correctly. 
 */
 
