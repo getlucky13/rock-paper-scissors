@@ -88,28 +88,8 @@ function getPlayerChoice(e) {
   }
 
 
-/* game() will start a new game when new game button is pressed
-Global vars:
-winner - string that updates stating the winner of each round, to be used to display results; defaults to 'CHOOSE' on game start
-pWins - tracks player wins
-cWins - tracks computer wins
-score - string that displays overall score. updates after each round. is reset when game() is ran.
-gameOver - a boolean that is true if either player or comp wins = 5.
-finalWinner - string that displays overall winner, used to display final victory message.
-
-Originally intended to contain the entire gameplay in a game() function. No longer think that is best. 
-After reviewing some projects, simplest way to fix what I have would be to set an event listener on each button that runs getPlayerChoice.
-At the end of play round, use a function to check if the game is over and a winner has been determined. 
-Use a final function to display final results.
-Can have new game either use location.reload to reload the page, or could make a function to reset all values to default. 
-
-function getPlayerChoice(e) {
-  let playerSelection= (e.target.id);
-  playerChoice = e.target.textContent;
-  playRound(playerSelection, computerPlay());
-}
-
-Borrow from another project. May be useful for taking button clicking input. 
-
+/* 
+getPlayerChoice isnt properly executing, I think because the textContent it's pulling isn't working as an arg for playRound. 
+Could maybe change playRound to work with the lower case button ids and use those as playerSelection. Testing still required.
 */
 
