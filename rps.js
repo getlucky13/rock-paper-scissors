@@ -43,7 +43,8 @@ function playRound(playerSelection, computerSelection) {
         case playerSelection === computerSelection:
             return 'Draw!';
     }
-    
+    updateWinner(victory);
+    updateGameOver(pWins, cWins);
 }
 
 function updateGameOver(pWins, cWins) {
@@ -79,6 +80,11 @@ function newGame(){
 
 const newGameBtn = document.querySelector('#newGame');
 newGameBtn.addEventListener('click', newGame);
+
+function getPlayerChoice(e) {
+    let playerSelection = (e.target.textContent);
+    playRound(playerSelection, computerPlay());
+  }
 
 
 /* game() will start a new game when new game button is pressed
