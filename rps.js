@@ -18,24 +18,24 @@ function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3);
     switch (randomNumber) {
         case 0: 
-            return 'Rock';
+            return 'rock';
         case 1:
-            return 'Paper';
+            return 'paper';
         case 2:
-            return 'Scissors';
+            return 'scissors';
     }
 }
 
 function playRound(playerSelection, computerSelection) {
     let victory;
     switch (true) {
-        case playerSelection === 'Rock' && computerSelection === 'Scissors':
-        case playerSelection === 'Paper' && computerSelection === 'Rock':
-        case playerSelection === 'Scissors' && computerSelection === 'Paper':
+        case playerSelection === 'rock' && computerSelection === 'scissors':
+        case playerSelection === 'paper' && computerSelection === 'rock':
+        case playerSelection === 'scissors' && computerSelection === 'paper':
             victory = true;
-        case playerSelection === 'Rock' && computerSelection === 'Paper':
-        case playerSelection === 'Paper' && computerSelection === 'Scissors':
-        case playerSelection === 'Scissors' && computerSelection === 'Rock':
+        case playerSelection === 'rock' && computerSelection === 'paper':
+        case playerSelection === 'paper' && computerSelection === 'scissors':
+        case playerSelection === 'scissors' && computerSelection === 'rock':
             victory = false;
         case playerSelection === computerSelection:
             victory = 'Draw!';
@@ -80,7 +80,8 @@ const newGameBtn = document.querySelector('#newGame');
 newGameBtn.addEventListener('click', newGame);
 
 function getPlayerChoice(e) {
-    let playerSelection = (e.target.textContent);
+    let playerChoice = (e.target.textContent);
+    let playerSelection = playerChoice.trim().toLowerCase();
     playRound(playerSelection, computerPlay());
   }
 
