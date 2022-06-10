@@ -33,16 +33,20 @@ function playRound(playerSelection, computerSelection) {
         case playerSelection == 'paper' && computerSelection == 'rock':
         case playerSelection == 'scissors' && computerSelection == 'paper':
             victory = true;
+            pWins++;
             break;
         case playerSelection == 'rock' && computerSelection == 'paper':
         case playerSelection == 'paper' && computerSelection == 'scissors':
         case playerSelection == 'scissors' && computerSelection == 'rock':
             victory = false;
+            cWins++;
             break;
         case playerSelection == computerSelection:
             victory = 'Draw!';
             break;
     }
+    score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
+    scoreCard.textContent = score;
     updateWinner(victory);
     updateGameOver(pWins, cWins);
 }
@@ -60,12 +64,15 @@ function updateGameOver(pWins, cWins) {
 function updateWinner(victory) {
     if (victory) {
         winner = 'PLAYER WINS';
-        return pWins++;
+        resultsCard.textContent = winner;
+        return;
     } else if (!victory) {
         winner = 'COMPUTER WINS';
-        return cWins++;
-    } else if (victory === 'Draw') {
-        winner = 'Draw'
+        resultsCard.textContent = winner;
+        return;
+    } else if (victory == 'Draw') {
+        winner = 'DRAW';
+        resultsCard.textContent = winner;
         return;
     }
 }
@@ -75,8 +82,9 @@ function newGame(){
     cWins = 0; 
     winner = 'CHOOSE';
     gameOver = false;
+    score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
+    scoreCard.textContent = score;
     resultsCard.textContent = winner;
-    console.log(' newGame worked');
 }
 
 const newGameBtn = document.querySelector('#newGame');
@@ -90,6 +98,6 @@ function getPlayerChoice(e) {
 
 
 /* 
-playRound is working, but updateWinner isn't. 
+Existing functions work as expected. Game plays through without an end. Now need to display finalScore when gameOver is true and remove ability for player input
 */
 
