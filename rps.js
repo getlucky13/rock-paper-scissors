@@ -29,16 +29,19 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     let victory;
     switch (true) {
-        case playerSelection === 'rock' && computerSelection === 'scissors':
-        case playerSelection === 'paper' && computerSelection === 'rock':
-        case playerSelection === 'scissors' && computerSelection === 'paper':
+        case playerSelection == 'rock' && computerSelection == 'scissors':
+        case playerSelection == 'paper' && computerSelection == 'rock':
+        case playerSelection == 'scissors' && computerSelection == 'paper':
             victory = true;
-        case playerSelection === 'rock' && computerSelection === 'paper':
-        case playerSelection === 'paper' && computerSelection === 'scissors':
-        case playerSelection === 'scissors' && computerSelection === 'rock':
+            break;
+        case playerSelection == 'rock' && computerSelection == 'paper':
+        case playerSelection == 'paper' && computerSelection == 'scissors':
+        case playerSelection == 'scissors' && computerSelection == 'rock':
             victory = false;
-        case playerSelection === computerSelection:
+            break;
+        case playerSelection == computerSelection:
             victory = 'Draw!';
+            break;
     }
     updateWinner(victory);
     updateGameOver(pWins, cWins);
@@ -87,6 +90,6 @@ function getPlayerChoice(e) {
 
 
 /* 
-playRound is only returning draw. Inputs are being registered correctly. 
+playRound is working, but updateWinner isn't. 
 */
 
