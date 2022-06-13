@@ -66,10 +66,12 @@ function checkGameOver(gameOver) {
         if(pWins == 5) {
             finalWinner = 'PLAYER IS VICTORIOUS - PRESS NEW GAME TO PLAY AGAIN';
             resultsCard.textContent = finalWinner;
+            choiceBtns.forEach(button => button.removeEventListener('click', getPlayerChoice));
         }
         else if (cWins == 5) {
             finalWinner = 'COMPUTER IS VICTORIOUS - PRESS NEW GAME TO PLAY AGAIN';
             resultsCard.textContent = finalWinner;
+            choiceBtns.forEach(button => button.removeEventListener('click', getPlayerChoice));
         }
     }
 }
@@ -98,6 +100,7 @@ function newGame(){
     score = `PLAYER SCORE: ${pWins} || COMPUTER SCORE: ${cWins}`;
     scoreCard.textContent = score;
     resultsCard.textContent = winner;
+    choiceBtns.forEach(button => { button.addEventListener('click', getPlayerChoice) });
 }
 
 const newGameBtn = document.querySelector('#newGame');
