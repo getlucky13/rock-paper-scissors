@@ -49,6 +49,7 @@ function playRound(playerSelection, computerSelection) {
     scoreCard.textContent = score;
     updateWinner(victory);
     updateGameOver(pWins, cWins);
+    checkGameOver(gameOver);
 }
 
 function updateGameOver(pWins, cWins) {
