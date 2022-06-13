@@ -61,6 +61,19 @@ function updateGameOver(pWins, cWins) {
     }
 }
 
+function checkGameOver(gameOver) {
+    if(gameOver) {
+        if(pWins == 5) {
+            finalWinner = 'PLAYER IS VICTORIOUS - PRESS NEW GAME TO PLAY AGAIN';
+            resultsCard.textContent = finalWinner;
+        }
+        else if (cWins == 5) {
+            finalWinner = 'COMPUTER IS VICTORIOUS - PRESS NEW GAME TO PLAY AGAIN';
+            resultsCard.textContent = finalWinner;
+        }
+    }
+}
+
 function updateWinner(victory) {
     if (victory) {
         winner = 'PLAYER WINS';
