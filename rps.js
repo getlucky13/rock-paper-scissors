@@ -115,6 +115,7 @@ function getPlayerChoice(e) {
 
 
 /* 
-Existing functions work as expected. Game plays through without an end. Now need to display finalScore when gameOver is true and remove ability for player input
+Gameplay loop works properly. Something is off with score tracking. Sometimes when choosing rock, and possibly other options, score doesn't 
+increment on player win. It may have something to do with choosing the same input multiple times? Too quick of sucession? Need testing
 */
 
